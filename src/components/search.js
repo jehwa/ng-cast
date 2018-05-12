@@ -6,7 +6,7 @@ angular.module('video-player')
   
     controller: function(youTube) {
       this.query = '';
-      this.youTube = function () {
+      this.search = function () {
         youTube.search(this.searchResults, this.query);
         this.query = '';
       };
