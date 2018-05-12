@@ -28,7 +28,7 @@ angular.module('video-player')
         console.log(video);
       }.bind(this);
       this.callback = function(videos) {
-      // this.videos = videos
+        this.videos = videos;
         console.log(videos);
       }.bind(this);
     
