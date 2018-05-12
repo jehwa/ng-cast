@@ -6,30 +6,32 @@ angular.module('video-player')
   <div id="app container">
     <nav class="navbar">
       <div class="col-md-6 col-md-offset-3">
-        <search callback="$ctrl.callback" />
+        <search search-results="$ctrl.searchResults" />
       </div>
     </nav>
     <div class="row">
       <div class="col-md-7">
-        <video-player playing="$ctrl.playing"/>
+        <video-player current-video="$ctrl.currentVideo"/>
       </div>
       <div class="col-md-5">
-        <video-list clicking="$ctrl.clicking" videos="$ctrl.videos"/>
+        <video-list on-click="$ctrl.selectVideo" videos="$ctrl.videos"/>
 
       </div>
     <div>
   </div>`,
   
-    controller: function() {
+    controller: function(youTube) {
+      this.$onInit = function() {
+        youTube.search(this.searchResults, 'dogs');
+      };
       this.videos = window.exampleVideoData;
-      this.playing = window.exampleVideoData[0];
-      this.clicking = function(video) {
-        this.playing = video;
-        console.log(video);
+      this.currentVideo = window.exampleVideoData[0];
+      this.selectVideo = function(video) {
+        this.currentVideo = video;
       }.bind(this);
-      this.callback = function(videos) {
+      this.searchResults = function(videos) {
         this.videos = videos;
-        console.log(videos);
+        this.currentVideo = videos[0];
       }.bind(this);
     
     }

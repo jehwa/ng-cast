@@ -2,16 +2,12 @@ angular.module('video-player')
   .component('videoList', {
     bindings: {
       videos: '<',
-      clicking: '<'
+      onClick: '<'
     },
-  
-    // controller: function() {
-    //   console.log('hi');
-    // },
   
     template: `
   <ul class="video-list">
-    <video-list-entry ng-repeat="video in $ctrl.videos track by $index" ng-click="$ctrl.clicking(video)" video="video" />
+    <video-list-entry ng-repeat="video in $ctrl.videos track by $index" ng-click="$ctrl.onClick(video)" video="video" />
   </ul>`
 
   });

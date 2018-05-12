@@ -12,7 +12,7 @@ describe('app', function() {
 
     // We're stubbing out the youTube search function so it doesn't
     // make an http request
-    youTube.search = function(str, callback) {
+    youTube.search = function(callback, str) {
       callback(fakeVideoData);
     };
 
