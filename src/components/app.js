@@ -2,23 +2,7 @@ angular.module('video-player')
 
   .component('app', {
   
-    template: `
-  <div id="app container">
-    <nav class="navbar">
-      <div class="col-md-6 col-md-offset-3">
-        <search search-results="$ctrl.searchResults" />
-      </div>
-    </nav>
-    <div class="row">
-      <div class="col-md-7">
-        <video-player current-video="$ctrl.currentVideo"/>
-      </div>
-      <div class="col-md-5">
-        <video-list on-click="$ctrl.selectVideo" videos="$ctrl.videos"/>
-
-      </div>
-    <div>
-  </div>`,
+    templateUrl: 'src/templates/app.html',
   
     controller: function(youTube) {
       this.$onInit = function() {

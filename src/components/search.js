@@ -6,15 +6,11 @@ angular.module('video-player')
   
     controller: function(youTube) {
       this.query = '';
-      this.youTube = youTube.search;
+      this.youTube = function () {
+        youTube.search(this.searchResults, this.query);
+        this.query = '';
+      };
     },
-  
-    template: `
-    <div class="search-bar form-inline">
-      <input ng-model="$ctrl.query" class="form-control" type="text" />
-      <button ng-click="$ctrl.youTube($ctrl.searchResults, $ctrl.query)"class="btn">
-        <span class="glyphicon glyphicon-search"></span>
-      </button>
-    </div>`
-    
+
+    templateUrl: 'src/templates/search.html'
   });

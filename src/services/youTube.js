@@ -14,6 +14,7 @@ angular.module('video-player')
         },
       }).then(function(data) {
         callback(data.data.items);
+        
       });
     };
   });
